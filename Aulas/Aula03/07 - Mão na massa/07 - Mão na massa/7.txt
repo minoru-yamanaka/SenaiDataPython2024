@@ -1,0 +1,67 @@
+def adicionar_nome(lista_pessoas, nome, tem_carteira, idade):
+    """
+    Função para adicionar um novo nome à lista de pessoas.
+    
+    Args:
+    - lista_pessoas (list): Lista atual de pessoas (lista de tuplas).
+    - nome (str): Nome da pessoa a ser adicionada.
+    - tem_carteira (bool): Indicação se a pessoa tem carteira de motorista (True) ou não (False).
+    - idade (int): Idade da pessoa.
+    
+    Returns:
+    - list: Lista atualizada de pessoas após adicionar a nova pessoa.
+    """
+    nova_pessoa = (nome, tem_carteira, idade)
+    lista_pessoas.append(nova_pessoa)
+    return lista_pessoas
+
+def encerrar_e_imprimir(lista_pessoas):
+    """
+    Função para encerrar e imprimir a lista de pessoas.
+    
+    Args:
+    - lista_pessoas (list): Lista atual de pessoas (lista de tuplas).
+    
+    Returns:
+    - None
+    """
+    print("Encerrando lista de pessoas:")
+    for pessoa in lista_pessoas:
+        nome = pessoa[0]
+        tem_carteira = pessoa[1]
+        if tem_carteira:
+            print(f"{nome} pode dirigir.")
+        else:
+            print(f"{nome} não pode dirigir.")
+    print("Lista de pessoas encerrada.")
+
+def recomecar():
+    """
+    Função para recomeçar a lista de pessoas, retornando uma lista vazia.
+    
+    Returns:
+    - list: Lista vazia para iniciar uma nova lista de pessoas.
+    """
+    return []
+
+# Exemplo de uso das funções:
+# Inicializando uma lista de pessoas
+pessoas = [
+    ('João', True, 21),
+    ('Gabriel', False, 25),
+    ('Ana', True, 20),
+    ('Victor', True, 30),
+    ('Lucas', False, 15)
+]
+
+# Adicionando uma nova pessoa à lista
+pessoas = adicionar_nome(pessoas, 'Mariana', True, 28)
+
+# Encerrando e imprimindo a lista de pessoas
+encerrar_e_imprimir(pessoas)
+
+# Recomeçando a lista de pessoas
+pessoas = recomecar()
+
+# Verificando se a lista foi reiniciada (deve imprimir uma lista vazia)
+print("Lista de pessoas reiniciada:", pessoas)
